@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd"> <html> <head> <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> <style>
+  body.cmp {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #2b2b2b;
+    color: #eee;
+  }
+
+  .cmp-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    background: #1c1c1d;
+    border-bottom: 1px solid #444;
+    font-size: 0.8rem;
+  }
+
+  .cmp-bar label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .cmp-bar input[type="number"] {
+    width: 4.5rem;
+    padding: 0.15rem 0.3rem;
+    background: #2b2b2b;
+    color: #eee;
+    border: 1px solid #555;
+    border-radius: 3px;
+  }
+
+  .cmp-bar .cmp-hint {
+    margin-left: auto;
+    opacity: 0.6;
+  }
+
+  .cmp-panes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .cmp-pane h2 {
+    margin: 0;
+    padding: 0.4rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: #1c1c1d;
+  }
+
+  .cmp-pane .cmp-viewport {
+    overflow: hidden;
+    background: #fff;
+  }
+
+  /* Render each pane at a full desktop width, then scale it down to fit.
+     Without this, a half-screen iframe is narrower than the 930/990px
+     container and both panes would clamp to the same width — hiding the
+     exact difference we are trying to look at. */
+  .cmp-pane iframe {
+    width: 1200px;
+    height: 1750px;
+    border: 0;
+    transform-origin: top left;
+    display: block;
+  }
+</style> </head> <body> <div class="cmp-bar"> <strong>al-folio A/B</strong> <label>container <input id="cmp-width" type="number" min="800" max="1400" step="10" value="990">px</label> <label>profile <input id="cmp-profile" type="number" min="20" max="60" step="1" value="34">%</label> <label>text column <output id="cmp-text">~635px</output></label> <span class="cmp-hint">edits apply to the AFTER pane live — copy the values into assets/css/main.scss when happy</span> </div> <div class="cmp-panes"> <div class="cmp-pane"> <h2>Before — theme defaults (930px / 30% / purple / white)</h2> <div class="cmp-viewport"><iframe id="cmp-before" src="/"></iframe></div> </div> <div class="cmp-pane"> <h2>After — local overrides</h2> <div class="cmp-viewport"><iframe id="cmp-after" src="/"></iframe></div> </div> </div> <script>
+  document.body.classList.add("cmp");
+
+  // The theme's own values, restored on top of the local overrides.
+  const BEFORE_CSS = `
+    :root {
+      --global-bg-color: #ffffff;
+      --global-theme-color: #b509ac;
+      --global-hover-color: #b509ac;
+      --global-code-bg-color: rgba(181, 9, 172, 0.05);
+    }
+    html[data-theme="dark"] {
+      --global-theme-color: #2698ba;
+      --global-hover-color: #2698ba;
+    }
+    .container[role="main"]:has(.profile) { max-width: 930px; }
+    @media (min-width: 576px) { .profile { width: 30%; } }
+  `;
+
+  const afterCss = () => `
+    .container[role="main"]:has(.profile) { max-width: ${document.getElementById("cmp-width").value}px; }
+    @media (min-width: 576px) { .profile { width: ${document.getElementById("cmp-profile").value}%; } }
+  `;
+
+  function inject(frame, css) {
+    const doc = frame.contentDocument;
+    if (!doc) return;
+    let el = doc.getElementById("cmp-injected");
+    if (!el) {
+      el = doc.createElement("style");
+      el.id = "cmp-injected";
+      doc.head.appendChild(el);
+    }
+    el.textContent = css;
+  }
+
+  // Scale both panes so a 1200px-wide render fits the available half-screen.
+  function fit() {
+    const pane = document.querySelector(".cmp-viewport");
+    const scale = pane.clientWidth / 1200;
+    document.querySelectorAll(".cmp-pane iframe").forEach((f) => {
+      f.style.transform = `scale(${scale})`;
+    });
+    document.querySelectorAll(".cmp-viewport").forEach((v) => {
+      v.style.height = 1750 * scale + "px";
+    });
+  }
+
+  function refresh() {
+    inject(document.getElementById("cmp-before"), BEFORE_CSS);
+    inject(document.getElementById("cmp-after"), afterCss());
+    // Float margin is 1rem; report the text column the reader actually gets.
+    const w = +document.getElementById("cmp-width").value;
+    const p = +document.getElementById("cmp-profile").value;
+    document.getElementById("cmp-text").textContent = `~${Math.round((w * (100 - p)) / 100 - 16)}px`;
+  }
+
+  document.getElementById("cmp-before").addEventListener("load", refresh);
+  document.getElementById("cmp-after").addEventListener("load", refresh);
+  document.getElementById("cmp-width").addEventListener("input", refresh);
+  document.getElementById("cmp-profile").addEventListener("input", refresh);
+  window.addEventListener("resize", fit);
+  fit();
+</script> </body> </html>
