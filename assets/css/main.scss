@@ -1,0 +1,86 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+/* Built-in Sass modules you’ll likely use across partials */
+@use "sass:math";
+@use "sass:string";
+
+/* Configure your design tokens BEFORE loading any of your partials.
+   Make sure `_sass/_variables.scss` declares `$max-content-width: 72rem !default;` */
+@use "variables" with (
+  $max-content-width: {{ site.max_width | default:  "930px" }}
+);
+
+/* Your project partials — convert these files to `@use "variables";`
+   (or `@use "variables" as *;`) inside each file and qualify variables if needed. */
+@use "themes";
+@use "layout";
+
+// Core styles organized by usage
+@use "typography";
+@use "navbar";
+@use "footer";
+@use "blog";
+@use "publications";
+@use "components";
+@use "utilities";
+
+// Other specialized styles
+@use "tabs";
+@use "teachings";
+@use "typograms";
+
+/*******************************************************************************
+ * Local overrides
+ *
+ * This file shadows al_folio_core's assets/css/main.scss. Everything above is
+ * the gem's version verbatim — keep it in sync on theme upgrades. Site-specific
+ * overrides go below, where they win by source order.
+ ******************************************************************************/
+
+// Warm ivory page background for light mode only; dark mode is untouched.
+$page-bg-light: #fffcef;
+
+// Sage green accent, replacing the theme's magenta (#b509ac). Drives links,
+// the active nav item, hover states, and assorted underlines/borders.
+$accent-light: #47713f; // 5.5:1 on the ivory above — same hue as before, more chroma so it holds its own
+$accent-light-hover: #3b5f35; // deeper, so hover is a visible shift rather than a guess
+$accent-dark: #a8c6a1; // light sage for dark mode, replacing the theme's cyan
+
+:root {
+  --global-bg-color: #{$page-bg-light};
+  --global-theme-color: #{$accent-light};
+  --global-hover-color: #{$accent-light-hover};
+  // Inline-code wash is keyed to the accent upstream; keep it in the same family.
+  --global-code-bg-color: #{rgba($accent-light, 0.06)};
+}
+
+html[data-theme="dark"] {
+  --global-theme-color: #{$accent-dark};
+  --global-hover-color: #{$accent-dark};
+}
+
+/* Bigger profile photo on the about page, without shortening its text.
+ *
+ * The theme floats the photo at 30% of a 930px container, leaving a ~635px text
+ * column. Growing the photo alone would eat into that text; widening the page
+ * alone would stretch every other page's line length. So do both, scoped to the
+ * about page: 990px container at 34% keeps the text column at ~635px and takes
+ * the photo from ~275px to ~335px.
+ *
+ * `[role="main"]` is load-bearing — the navbar is also a `.container`, and
+ * widening it here would make the nav shift width when leaving this page. */
+$about-container-width: 990px;
+$about-profile-width: 34%;
+
+.container[role="main"]:has(.profile) {
+  max-width: $about-container-width;
+}
+
+@media (min-width: 576px) {
+  .profile {
+    width: $about-profile-width;
+  }
+}

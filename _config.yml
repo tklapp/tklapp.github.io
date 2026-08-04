@@ -94,7 +94,7 @@ al_folio:
 # -----------------------------------------------------------------------------
 
 navbar_fixed: true
-footer_fixed: true
+footer_fixed: false # the footer is overridden away in _includes/footer.liquid; false keeps the body from reserving space for a fixed bar
 search_enabled: true
 socials_in_search: true
 posts_in_search: true

@@ -2,18 +2,16 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: 
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: prof_pic/IMG_1615.png
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Manhattan, NYC</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: False # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
@@ -27,8 +25,10 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Hi 👋🏻! I'm **Tadeo** (aka Tad). I am currently a CS Master's student at **Columbia University**, where I hope to collaborate in pushing the frontier in all things machine learning. 
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I am interested in interesting things 😁 - lately, that has revolved around **generalization of over-parameterized models** 🏔️, **pre-training of small language models** 🐣, **continual learning** 🐘, and the emergence of **objectness (shape-bias) in self-supervised vision models** 🫖. 
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Previously, I was a Quantitative Researcher at **Duquesne** 📈 where I focused on low-frequency, high-capacity strategies (for the 🐐). Before that, I was a Founding ML Researcher at **Move37AI**, where we built one of the largest automated betting syndicates in the world from scratch 🐎. I'm extremely grateful to the mentors I had at both, from whom I've learned an enormous amount. I earned my undergrad in Economics as valedictorian from **Universidad Torcuato Di Tella** 🇦🇷, my beloved alma mater, where I focused on stats and econometrics.
+
+In my free time, I really enjoy being active, so you'll find me powerlifting 🏋️‍♂️, surfing 🏄‍♂️, skiing ⛷️ and running 🏃. Big soccer (River Plate 🤍♥️🤍) fan, so if you want to trigger me, just say the word (VArgentina)! I also listen to lots of music 🎸, of the most varied genres, and you can check out **[gems]({{ '/gems/' | relative_url }})** where I post spectacular live performances I'm afraid will get lost to history. Thus you will also find me enjoying St Paul's or St Vincent's ⛪️ music ministries every Sunday (if you are a fellow parishioner, come say hi!). Finally, I really like teaching and writing, so check out my blog below - though, luckily for everyone, no more neo-classical econ takes anytime soon; it'll be 99.9% AI from now on 🤖. 

@@ -1,0 +1,25 @@
+# Live music gems.
+#
+# Newest first — the page renders them in the order listed here.
+# Every field except `title` and `url` is optional.
+#
+#   - title:  the song (or set, or whole show)
+#     artist: who is playing
+#     where:  venue, festival, or session — wherever it was recorded
+#     year:   when it was recorded (a year, or "1971-03-06", or "circa 1968")
+#     url:    link to the recording
+#     note:   why this one is a gem — a sentence or two, plain text or markdown
+
+- title: Maggot Brain
+  artist: Funkadelic
+  where: Live at the Tampa Bay Rock Festival
+  year: 1971
+  url: https://www.youtube.com/watch?v=6yEitk4iOtc
+  note: Ten minutes of one guitar. The studio take is the famous one, but live it wanders further before it finds its way back.
+
+- title: Hallogallo
+  artist: Neu!
+  where: WDR studio session, Cologne
+  year: 1972
+  url: https://www.youtube.com/watch?v=jjOnUwaN_qA
+  note: A rhythm section that refuses to resolve, recorded in a room with no audience in it.
