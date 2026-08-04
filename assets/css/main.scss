@@ -72,6 +72,16 @@ html[data-theme="dark"] {
  *
  * `[role="main"]` is load-bearing — the navbar is also a `.container`, and
  * widening it here would make the nav shift width when leaving this page. */
+/* Page titles in the accent green. The theme only colored the blog's oversized
+ * centered banner; this applies the same green to the normal page-header title
+ * that gems, cv and individual posts already use, so every heading matches.
+ *
+ * The about page is excluded — its h1 is the site title (a person's name), and
+ * it reads better in the body color. `.profile` only exists on that page. */
+.post:not(:has(.profile)) .post-header .post-title {
+  color: var(--global-theme-color);
+}
+
 $about-container-width: 990px;
 $about-profile-width: 34%;
 
