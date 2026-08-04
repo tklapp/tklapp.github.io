@@ -12,12 +12,43 @@
   }
 
   .gem {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
     padding: 1.25rem 0;
     border-top: 1px solid var(--global-divider-color);
   }
 
   .gem:last-child {
     border-bottom: 1px solid var(--global-divider-color);
+  }
+
+  /* min-width/max-width are load-bearing: a flex item defaults to
+     min-width:auto, which is the image's intrinsic 480px, so flex-basis alone
+     gets ignored and the thumb renders full size. */
+  .gem-thumb {
+    flex: 0 0 160px;
+    min-width: 0;
+    max-width: 160px;
+    display: block;
+    line-height: 0;
+  }
+
+  /* hqdefault is 4:3 and holds the whole frame; mqdefault is a hard 16:9
+     center-crop that decapitates anything shot in 4:3. `contain` means a
+     natively widescreen video letterboxes instead of being cut. */
+  .gem-thumb img {
+    width: 160px;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 4px;
+    display: block;
+  }
+
+  /* Keeps the text from overflowing the flex row on long titles. */
+  .gem-body {
+    min-width: 0;
+    flex: 1;
   }
 
   .gem-title {
@@ -53,7 +84,19 @@
   .gem-note p {
     margin-bottom: 0;
   }
-</style> <ul class="gem-list"> <li class="gem"> <div class="gem-title"> <a href="https://www.youtube.com/watch?v=6yEitk4iOtc" target="_blank" rel="noopener noreferrer">Maggot Brain</a> <span class="gem-artist">— Funkadelic</span> </div> <div class="gem-meta"> Live at the Tampa Bay Rock Festival, 1971 </div> <div class="gem-note"> <p>Ten minutes of one guitar. The studio take is the famous one, but live it wanders further before it finds its way back.</p> </div> </li> <li class="gem"> <div class="gem-title"> <a href="https://www.youtube.com/watch?v=jjOnUwaN_qA" target="_blank" rel="noopener noreferrer">Hallogallo</a> <span class="gem-artist">— Neu!</span> </div> <div class="gem-meta"> WDR studio session, Cologne, 1972 </div> <div class="gem-note"> <p>A rhythm section that refuses to resolve, recorded in a room with no audience in it.</p> </div> </li> </ul> </article> </div> </div> <script>
+
+  @media (max-width: 575px) {
+    .gem-thumb {
+      flex-basis: 108px;
+      max-width: 108px;
+    }
+
+    .gem-thumb img {
+      width: 108px;
+      height: 81px;
+    }
+  }
+</style> <ul class="gem-list"> <li class="gem"> <a class="gem-thumb" href="https://www.youtube.com/watch?v=yott5SijptU" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"> <img src="https://img.youtube.com/vi/yott5SijptU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"> </a> <div class="gem-body"> <div class="gem-title"> <a href="https://www.youtube.com/watch?v=yott5SijptU" target="_blank" rel="noopener noreferrer">Scherzo 3 cis-moll op.39 Chopin Competition</a> <span class="gem-artist">— Martha Argerich</span> </div> <div class="gem-meta"> Warsaw, Poland, 1965 </div> <div class="gem-note"> <p>Being able to see a virtuous’ performance like this one is a really a humanity’s feat.</p> </div> </div> </li> <li class="gem"> <a class="gem-thumb" href="https://www.youtube.com/watch?v=yott5SijptU" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"> <img src="https://img.youtube.com/vi/yott5SijptU/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"> </a> <div class="gem-body"> <div class="gem-title"> <a href="https://www.youtube.com/watch?v=yott5SijptU" target="_blank" rel="noopener noreferrer">Total Interferencia</a> <span class="gem-artist">— Charly García</span> </div> <div class="gem-meta"> Badia &amp; Cia, 1985 </div> <div class="gem-note"> <p>The closing song of a notable album, performed majestically.</p> </div> </div> </li> <li class="gem"> <a class="gem-thumb" href="https://www.youtube.com/watch?v=i9Sbh4m-Ssg" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true"> <img src="https://img.youtube.com/vi/i9Sbh4m-Ssg/hqdefault.jpg" alt="" loading="lazy" width="480" height="360"> </a> <div class="gem-body"> <div class="gem-title"> <a href="https://www.youtube.com/watch?v=i9Sbh4m-Ssg" target="_blank" rel="noopener noreferrer">Vos también estabas verde</a> <span class="gem-artist">— Charly García</span> </div> <div class="gem-meta"> Ferro, 1982 </div> <div class="gem-note"> <p>No one else could start this list other than him. This song literally touches your heart.</p> </div> </div> </li> </ul> </article> </div> </div> <script>
   window.alFolio = {
     compatBootstrap: false
   };
@@ -92,40 +135,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-a-post-with-marimo-snippets",
-        
-          title: "a post with marimo snippets",
-        
-        description: "running Python in the browser with marimo",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2025/marimo/";
-          
-        },
-      },{id: "post-a-post-with-plotly-js",
-        
-          title: "a post with plotly.js",
-        
-        description: "this is what included plotly.js code could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2025/plotly/";
-          
-        },
-      },{id: "post-a-post-with-image-galleries",
-        
-          title: "a post with image galleries",
-        
-        description: "this is what included image galleries could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/photo-gallery/";
-          
-        },
-      },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
+        },{id: "post-google-gemini-updates-flash-1-5-gemma-2-and-project-astra",
         
           title: 'Google Gemini updates: Flash 1.5, Gemma 2 and Project Astra <svg width="1.2rem" height="1.2rem" top=".5rem" viewbox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
         
@@ -134,237 +144,6 @@ ninja.data = [{
         handler: () => {
           
             window.open("https://blog.google/technology/ai/google-gemini-update-flash-ai-assistant-io-2024/", "_blank");
-          
-        },
-      },{id: "post-a-post-with-tabs",
-        
-          title: "a post with tabs",
-        
-        description: "this is what included tabs in a post could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/tabs/";
-          
-        },
-      },{id: "post-a-post-with-typograms",
-        
-          title: "a post with typograms",
-        
-        description: "this is what included typograms code could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/typograms/";
-          
-        },
-      },{id: "post-a-post-that-can-be-cited",
-        
-          title: "a post that can be cited",
-        
-        description: "this is what a post that can be cited looks like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/post-citation/";
-          
-        },
-      },{id: "post-a-post-with-pseudo-code",
-        
-          title: "a post with pseudo code",
-        
-        description: "this is what included pseudo code could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/pseudocode/";
-          
-        },
-      },{id: "post-a-post-with-code-diff",
-        
-          title: "a post with code diff",
-        
-        description: "this is how you can display code diffs",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/code-diff/";
-          
-        },
-      },{id: "post-a-post-with-advanced-image-components",
-        
-          title: "a post with advanced image components",
-        
-        description: "this is what advanced image components could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/advanced-images/";
-          
-        },
-      },{id: "post-a-post-with-vega-lite",
-        
-          title: "a post with vega lite",
-        
-        description: "this is what included vega lite code could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/vega-lite/";
-          
-        },
-      },{id: "post-a-post-with-geojson",
-        
-          title: "a post with geojson",
-        
-        description: "this is what included geojson code could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/geojson-map/";
-          
-        },
-      },{id: "post-a-post-with-echarts",
-        
-          title: "a post with echarts",
-        
-        description: "this is what included echarts code could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/echarts/";
-          
-        },
-      },{id: "post-a-post-with-chart-js",
-        
-          title: "a post with chart.js",
-        
-        description: "this is what included chart.js code could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2024/chartjs/";
-          
-        },
-      },{id: "post-a-post-with-tikzjax",
-        
-          title: "a post with TikZJax",
-        
-        description: "this is what included TikZ code could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/tikzjax/";
-          
-        },
-      },{id: "post-a-post-with-bibliography",
-        
-          title: "a post with bibliography",
-        
-        description: "an example of a blog post with bibliography",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/post-bibliography/";
-          
-        },
-      },{id: "post-a-post-with-jupyter-notebook",
-        
-          title: "a post with jupyter notebook",
-        
-        description: "an example of a blog post with jupyter notebook",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/jupyter-notebook/";
-          
-        },
-      },{id: "post-a-post-with-custom-blockquotes",
-        
-          title: "a post with custom blockquotes",
-        
-        description: "an example of a blog post with custom blockquotes",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/custom-blockquotes/";
-          
-        },
-      },{id: "post-a-post-with-table-of-contents-on-a-sidebar",
-        
-          title: "a post with table of contents on a sidebar",
-        
-        description: "an example of a blog post with table of contents on a sidebar",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/sidebar-table-of-contents/";
-          
-        },
-      },{id: "post-a-post-with-audios",
-        
-          title: "a post with audios",
-        
-        description: "this is what included audios could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/audios/";
-          
-        },
-      },{id: "post-a-post-with-videos",
-        
-          title: "a post with videos",
-        
-        description: "this is what included videos could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/videos/";
-          
-        },
-      },{id: "post-displaying-beautiful-interactive-tables",
-        
-          title: "displaying beautiful interactive tables",
-        
-        description: "an example of how to use interactive tables in al-folio",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/tables/";
-          
-        },
-      },{id: "post-a-post-with-table-of-contents",
-        
-          title: "a post with table of contents",
-        
-        description: "an example of a blog post with table of contents",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2023/table-of-contents/";
-          
-        },
-      },{id: "post-a-post-with-giscus-comments",
-        
-          title: "a post with giscus comments",
-        
-        description: "an example of a blog post with giscus comments",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2022/giscus-comments/";
-          
-        },
-      },{id: "post-یک-نوشتهٔ-راست-چین",
-        
-          title: "یک نوشتهٔ راست‌چین",
-        
-        description: "نمونه‌ای از پشتیبانی زبان‌های راست‌چین",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2022/rtl/";
           
         },
       },{id: "post-displaying-external-posts-on-your-al-folio-blog",
@@ -378,28 +157,6 @@ ninja.data = [{
             window.open("https://medium.com/@al-folio/displaying-external-posts-on-your-al-folio-blog-b60a1d241a0a?source=rss-17feae71c3c4------2", "_blank");
           
         },
-      },{id: "post-a-post-with-redirect",
-        
-          title: "a post with redirect",
-        
-        description: "you can also redirect to assets like pdf",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/assets/pdf/example_pdf.pdf";
-          
-        },
-      },{id: "post-a-post-with-diagrams",
-        
-          title: "a post with diagrams",
-        
-        description: "an example of a blog post with diagrams",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2021/diagrams/";
-          
-        },
       },{id: "post-a-distill-style-blog-post",
         
           title: "a distill-style blog post",
@@ -411,70 +168,15 @@ ninja.data = [{
             window.location.href = "/blog/2021/distill/";
           
         },
-      },{id: "post-a-post-with-twitter",
+      },{id: "post-capital-controls-a-greater-evil-financed-by-the-poorest",
         
-          title: "a post with twitter",
+          title: "Capital controls: a greater evil financed by the poorest",
         
-        description: "an example of a blog post with twitter",
+        description: "why and how exchange controls end up hurting the people they claim to protect",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2020/twitter/";
-          
-        },
-      },{id: "post-a-post-with-disqus-comments",
-        
-          title: "a post with disqus comments",
-        
-        description: "an example of a blog post with disqus comments",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/disqus-comments/";
-          
-        },
-      },{id: "post-a-post-with-math",
-        
-          title: "a post with math",
-        
-        description: "an example of a blog post with some math",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/math/";
-          
-        },
-      },{id: "post-a-post-with-code",
-        
-          title: "a post with code",
-        
-        description: "an example of a blog post with some code",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/code/";
-          
-        },
-      },{id: "post-a-post-with-images",
-        
-          title: "a post with images",
-        
-        description: "this is what included images could look like",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/images/";
-          
-        },
-      },{id: "post-a-post-with-formatting-and-links",
-        
-          title: "a post with formatting and links",
-        
-        description: "march & april, looking forward to summer",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2015/formatting-and-links/";
+            window.location.href = "/blog/2020/capital-controls/";
           
         },
       },{id: "books-the-godfather",
