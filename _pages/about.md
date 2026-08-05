@@ -9,7 +9,8 @@ profile:
   image: prof_pic/IMG_1615.png
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Manhattan, NYC</p>
+    <p>Manhattan, New York</p>
+    <p>{}@{}.edu - tmk2159, col*mbia</p>
 
 selected_papers: False # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
