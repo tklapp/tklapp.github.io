@@ -4,7 +4,7 @@ permalink: /gems/
 title: gems
 description: live recordings worth the detour — an ongoing dig through concerts, sessions, and bootlegs.
 nav: true
-nav_order: 2
+nav_order: 3
 ---
 
 <style>
@@ -102,6 +102,7 @@ nav_order: 2
 </style>
 
 {% if site.data.gems and site.data.gems.size > 0 %}
+
   <ul class="gem-list">
     {% for gem in site.data.gems %}
       {% comment %}
@@ -138,6 +139,7 @@ nav_order: 2
         </div>
       </li>
     {% endfor %}
+
   </ul>
 {% else %}
   <p>Nothing here yet — the dig is ongoing.</p>

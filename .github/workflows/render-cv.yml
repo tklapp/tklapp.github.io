@@ -1,14 +1,11 @@
 name: Render a CV
+# Manual only. RenderCV >= 2.x rejects `cv.label`, `cv.image` and `cv.summary`,
+# which the al-folio CV page needs, so `rendercv render` fails on any _data/cv.yml
+# that renders a complete /cv/ page — including the Einstein sample this repo
+# shipped with. The PDFs linked from /cv/ are hand-made and live in assets/pdf/,
+# so nothing depends on this job. Restore the `push:` trigger below if upstream
+# reconciles the two schemas.
 on:
-  push:
-    branches:
-      - main
-      - master
-    paths:
-      - "_data/cv.yml"
-      - "assets/rendercv/design.yaml"
-      - "assets/rendercv/locale.yaml"
-      - "assets/rendercv/settings.yaml"
   workflow_call:
   workflow_dispatch:
 permissions:

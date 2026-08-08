@@ -70,10 +70,10 @@ bundle install
 npm ci
 npm run lint:prettier
 npm run lint:style-contract
-bundle exec jekyll build --baseurl /al-folio
+bundle exec jekyll build
 ```
 
-The `--baseurl /al-folio` flag matters: the demo site is published as a project page, and building without it produces an unstyled site with broken links.
+Do not pass `--baseurl`: this site serves from the domain root and `_config.yml` leaves `baseurl:` blank. The `--baseurl /al-folio` flag belongs to the upstream template, whose demo is published as a project page; using it here produces an unstyled site with broken links. See [ARCHITECTURE.md](ARCHITECTURE.md#3-this-sites-baseurl-is-intentionally-blank).
 
 If your change touches plugin wiring or feature behavior, run the integration tests it affects. All seven are gated by `unit-tests.yml`:
 

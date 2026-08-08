@@ -9,7 +9,7 @@ This is the **authoritative** description of how the `al-folio` v1 starter and i
   - [Failure modes that produce no error message](#failure-modes-that-produce-no-error-message)
     - [1. Features fail silently when the gem or the flag is missing](#1-features-fail-silently-when-the-gem-or-the-flag-is-missing)
     - [2. Gemfile and \_config.yml are two lists that must agree](#2-gemfile-and-_configyml-are-two-lists-that-must-agree)
-    - [3. This repo's effective baseurl is /al-folio](#3-this-repos-effective-baseurl-is-al-folio)
+    - [3. This site's baseurl is intentionally blank](#3-this-sites-baseurl-is-intentionally-blank)
   - [Wrapper to tag to gem delegation](#wrapper-to-tag-to-gem-delegation)
   - [How feature gems ship their assets](#how-feature-gems-ship-their-assets)
   - [The v1 config contract](#the-v1-config-contract)
@@ -61,16 +61,18 @@ Plugin activation requires **two edits, in two files**:
 
 A gem present in only one of them is inert. In the `Gemfile` only, Jekyll never loads it; in `plugins:` only, Bundler never installs it. Adding **or removing** a plugin means editing both. Note the spelling difference: repo directories use hyphens (`al-folio-core`), gem and plugin ids use underscores (`al_folio_core`).
 
-### 3. This repo's effective baseurl is `/al-folio`
+### 3. This site's baseurl is intentionally blank
 
-The demo site is published as a **project page** at `https://alshedivat.github.io/al-folio/`, so `_config.yml` already sets `baseurl: /al-folio`. A plain build therefore picks it up — `deploy.yml`, `broken-links-site.yml` and `axe.yml` all run `bundle exec jekyll build` with no flag. What matters is that the _effective_ baseurl stays `/al-folio`; passing it explicitly is redundant but harmless, and the command set spells it out so the served path is unambiguous:
+This site is published as a GitHub **user** site at `https://tklapp.github.io`, so it serves from the domain root and [`_config.yml`](../_config.yml) sets `url: https://tklapp.github.io` with `baseurl:` left **empty but present** — the key must exist with no value; deleting it breaks the build differently. A plain build is therefore correct, and that is what `deploy.yml`, `broken-links-site.yml` and `axe.yml` run:
 
 ```bash
-bundle exec jekyll build --baseurl /al-folio
-bundle exec jekyll serve            # http://localhost:4000/al-folio/  (note the path)
+bundle exec jekyll build
+bundle exec jekyll serve            # http://localhost:4000/
 ```
 
-What breaks the site is **blanking the baseurl out** — build with an empty baseurl and every asset and internal link resolves one path segment too high. The Docker entry point serves under `/al-folio` too. A build that "works" but renders unstyled is almost always a baseurl mismatch. In **your own** site this is different: personal and organization sites (`username.github.io`) must leave `baseurl` **empty but present**; project sites set `baseurl: /<project-name>/`. See [FAQ](FAQ.md#my-webpage-works-locally-but-after-deploying-it-is-not-displayed-correctly-css-and-js-are-not-loaded-properly-how-do-i-fix-that).
+What breaks the site is **setting a baseurl it does not have.** `--baseurl /al-folio` is inherited from the upstream template, which publishes its demo as a *project page* at `https://alshedivat.github.io/al-folio/`. Pass it here and every asset and internal link resolves one path segment too deep — the build succeeds, emits no warning, and renders unstyled. The Docker entry point serves from the root as well, so `curl -fsS http://127.0.0.1:8080/` is the health check; `/al-folio/` returns 404. A build that "works" but renders unstyled is almost always a baseurl mismatch.
+
+The general rule, if you fork this elsewhere: personal and organization sites (`username.github.io`) leave `baseurl` **empty but present**; project sites set `baseurl: /<project-name>/`. See [FAQ](FAQ.md#my-webpage-works-locally-but-after-deploying-it-is-not-displayed-correctly-css-and-js-are-not-loaded-properly-how-do-i-fix-that).
 
 ## Wrapper to tag to gem delegation
 
@@ -154,7 +156,7 @@ gem "al_folio_core", path: "../al-folio-core"     # or git: / branch:
 
 ```bash
 bundle install
-bundle exec jekyll build --baseurl /al-folio
+bundle exec jekyll build
 ```
 
 Revert the `Gemfile` to the pinned released version before committing — the pins in `Gemfile` are starter wiring and `test/style_contract.js` asserts some of them.

@@ -1,6 +1,7 @@
 ---
 # Only the main Sass file needs front matter (the dashes are enough)
 ---
+
 @charset "utf-8";
 
 /* Built-in Sass modules you’ll likely use across partials */
@@ -10,7 +11,7 @@
 /* Configure your design tokens BEFORE loading any of your partials.
    Make sure `_sass/_variables.scss` declares `$max-content-width: 72rem !default;` */
 @use "variables" with (
-  $max-content-width: {{ site.max_width | default:  "930px" }}
+  $max-content-width: {{site.max_width | default: "930px"}}
 );
 
 /* Your project partials — convert these files to `@use "variables";`
@@ -40,6 +41,15 @@
  * overrides go below, where they win by source order.
  ******************************************************************************/
 
+/* No site footer. The theme's footer is only a copyright bar, and this is done
+ * in CSS rather than by shadowing _includes/footer.liquid because a
+ * starter-local `_includes/` fails `npm run lint:style-contract` in CI.
+ * `footer_fixed: false` in _config.yml keeps the body from reserving space. */
+footer.sticky-bottom,
+footer.fixed-bottom {
+  display: none;
+}
+
 // Warm ivory page background for light mode only; dark mode is untouched.
 $page-bg-light: #fffcef;
 
@@ -55,6 +65,11 @@ $accent-dark: #a8c6a1; // light sage for dark mode, replacing the theme's cyan
   --global-hover-color: #{$accent-light-hover};
   // Inline-code wash is keyed to the accent upstream; keep it in the same family.
   --global-code-bg-color: #{rgba($accent-light, 0.06)};
+  // Upstream light mode sets page and card to the same #fff and lets the card's
+  // box-shadow carry the elevation on its own; only dark mode lifts the card a
+  // step (#1c1c1d page / #212529 card). Left alone, the card kept the literal
+  // white while the page went ivory, so every card read as a stray white sheet.
+  --global-card-bg-color: #{$page-bg-light};
 }
 
 html[data-theme="dark"] {
@@ -80,6 +95,136 @@ html[data-theme="dark"] {
  * it reads better in the body color. `.profile` only exists on that page. */
 .post:not(:has(.profile)) .post-header .post-title {
   color: var(--global-theme-color);
+}
+
+/* CV page fixes for two things al_folio_cv gets from Bootstrap, which this site
+ * does not load (`compat.bootstrap.enabled: false` in _config.yml). */
+.cv {
+  /* Each entry is an <li> inside a `.list-group`, and Bootstrap's
+   * `.list-group { list-style: none; padding-left: 0 }` is what normally hides
+   * the marker. Without it every entry picks up a UA disc and a 40px indent. */
+  .list-group {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  /* Put the date badge in the middle of the gutter — the span from the card's
+   * inner edge to where the entry text starts. Three separate things had to be
+   * settled, and they only make sense together.
+   *
+   * 1. The badge and location live in a <table> that sizes to its widest row,
+   *    the location, which the plugin sets `nowrap`. So each badge was centred
+   *    over a different width ("Buenos Aires, Argentina" is nearly twice "Milan,
+   *    Italy") and the badges walked left and right down the page.
+   *    `table-layout: fixed` makes the table take the column's width instead of
+   *    its content's, and letting the location wrap stops it forcing the table
+   *    wide again. 27% is then what fits the longest location on one line.
+   * 2. The text is inset from its own column by `ml-md-4` on the headings and
+   *    the UA list padding on the bullets, which is why the gutter is wider than
+   *    the date column. Trimming that inset keeps the headings and bullets on a
+   *    common left edge without pushing the text too far right. `ml-md-4` is an
+   *    `!important` utility, hence the `!important` to unset it.
+   * 3. Even so, the column's box lines up with the gutter at neither end:
+   *    `.row`'s negative margin starts it outside the card, and the text sits
+   *    inside the far column. That mismatch is a constant, so no choice of
+   *    column width absorbs it — it needs a shift, which is what the theme's own
+   *    `transform` on this column was already doing.
+   *
+   * Confined to the col-md-* breakpoint: below it the grid classes stop
+   * applying, the column has no width of its own, and a fixed-layout table would
+   * collapse the location to one word per line. */
+  @media (min-width: 768px) {
+    .text-center > table.table-cv {
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    p.location {
+      white-space: normal;
+    }
+
+    .date-column {
+      width: auto;
+      flex: 0 0 27%;
+      max-width: 27%;
+      /* Replaces the theme's `translateX(-15px) translateY(-5px)`, tuned for the
+       * original stacking order. Dropping the -5px is also what puts the badge
+       * on the company line, so there is no vertical nudge here. +28px is
+       * measured off the render: badge centre lands within a pixel of the
+       * gutter's. */
+      transform: translateX(28px);
+    }
+
+    .date-column + [class*="col-md-"] {
+      flex: 0 0 73%;
+      max-width: 73%;
+
+      h6 {
+        margin-left: 0 !important;
+      }
+
+      ul.items {
+        padding-left: 1.1rem;
+      }
+    }
+  }
+
+  /* Lead each entry with the employer/institution, the way the PDF does.
+   *
+   * al_folio_cv emits the position first (`h6.title`, bold), then the company
+   * (`h6` with an inline 0.95rem), then any summary (`h6` with an inline
+   * italic). Reordering is a flexbox job rather than a template one, since a
+   * starter-local _layouts/ fails `npm run lint:style-contract`. Every child
+   * needs an explicit `order` — anything left out defaults to 0 and jumps to
+   * the front. The inline styles are why these select on `[style*=...]`.
+   *
+   * Weight and slant carry the hierarchy instead of size: the company keeps its
+   * inline 0.95rem, so making it visually primary without `!important` means
+   * bolding it and stepping the role line down to italic. */
+  .date-column + [class*="col-md-"] {
+    display: flex;
+    flex-direction: column;
+
+    h6:not(.title):not([style*="italic"]) {
+      order: 1;
+      font-weight: 700;
+    }
+
+    h6.title {
+      order: 2;
+      font-size: 0.9rem;
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    h6[style*="italic"] {
+      order: 3;
+    }
+
+    ul {
+      order: 4;
+    }
+  }
+
+  /* The theme gives every `table:not(.table)` cell a `border-top`, meant for
+   * tables written in Markdown. The CV's date tables match that selector, so
+   * each entry drew a stray rule above the badge and another above the
+   * location. al-folio-cv.css resets the padding of these cells but not their
+   * border. */
+  table.table-cv td,
+  table.table-cv th {
+    border-top: 0;
+  }
+
+  /* Markdown `**lead-in**` in the Awards/Talks/Service/Downloads entries
+   * markdownifies to a bare <strong>, whose UA weight `bolder` is relative:
+   * inside these `.font-weight-light` (300) lists it resolves to 400, so the
+   * lead-ins came out no heavier than the text after them. Pin them to the
+   * weight the entry titles already use. */
+  strong,
+  b {
+    font-weight: 700;
+  }
 }
 
 $about-container-width: 990px;

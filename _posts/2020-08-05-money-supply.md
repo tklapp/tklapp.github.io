@@ -1,27 +1,47 @@
 ---
 layout: post
-title: "Money supply growth without inflation: is it possible? The monetarist view"
+title: "Money creation without inflation: is it possible? The monetarist view"
 date: 2020-08-05 10:00:00-0300
-description: a historical debate reemerges in the context of a new crisis
+description: An old debate resumes in the middle of a new crisis
 tags:
   - inflation
   - argentina
   - monetarism
-  - economics
+  - money creation
+  - monetary expansion
 categories: economics
 related_posts: true
 ---
 
-Opening paragraph — the claim you want to make, in two or three sentences.
+## Introduction
+Thus spoke Borges in _La noche cíclica_: "los astros y los hombres vuelven cíclicamente" - "stars and men return in cycles". In Argentina, so do debates the rest of the world seems to have settled several decades ago. With economic activity almost entirely paralyzed by lockdowns, and with the government printing money at a rapid pace without much inflation (even though that trend reversed somewhat in July), the debate has reemerged on whether inflation is a monetary phenomenon caused by excessive money growth, or whether it stems from alternative causes, like "greedy business owners", "market concentration" or "distributive struggles" between workers and employers.
 
-## The case for controls
+Monetarism is a school of thought usually associated with economists at the University of Chicago after 1950, though its origins in fact reach back considerably further. In this article I will make an incessant effort not to mix my own opinions in with the theoretical arguments, and I will try to limit myself to setting out the conclusions about inflation that this theory yields. _Disclaimer_: arguments here presented are a _drastically_ simplified version of much more complex theories, meant to bring out a few results that, crystal clear as they may seem, still confuse some economists.
 
-What proponents argue, stated fairly.
+## The Quantity Theory of Money
+This section will be ever so slightly more technical, but it is necessary to put into context the conclusions that follow. The quantity theory emerges from a particular interpretation of an identity about which there is little controversy (precisely because it is true by definition): the so-called "equation of exchange". In any economy, we -the agents- demand money because it lets us transact (e.g., buy food and pay rent) and store value (e.g., save money). Money makes our lives easier: picture a quantum physics professor at the greengrocer's, hoping to trade half an hour of Schrödinger for a kilo of avocados. On the other side, the Central Bank is the entity that supplies the money. In equilibrium, _in the long run_, we can derive in various ways that:
 
-## Who actually pays
+$$
+P \cdot Y = M \cdot V
+$$
 
-Your argument.
+where $P$ is the price level (CPI), $Y$ is the aggregate output (GDP), $V$ is the velocity at which money circulates (how fast we get rid of money, or, in other words, how many transactions are done on average with any given banknote), and $M$ is the Central Bank's money supply.
 
-## Conclusion
+What defines monetarism is the direction of causality it reads -and models- into this identity. For this school, "inflation is always and everywhere a monetary phenomenon in the sense that it is and can be produced only by a more rapid increase in the quantity of money than in output" (Friedman, 1970). This can be seen very directly in our equation above: if output $Y$ and velocity $V$ are held constant, increasing the quantity of money $M$ will necessarily raise the price level $P$. In the long run, according to monetarists, sustained _excessive_ increases in the quantity of money - excessive relative to the growth of output - will lead to sustained increases in the price level, which is precisely what we know as inflation.
 
-Where it leaves you.
+## What monetarism claims, and what it does _not_ claim
+Now, put very simply, monetarism says that inflation is a monetary phenomenon and that, _in the long run_, prices end up adjusting to monetary expansion. But monetarism does _not_ state that the relationship between money creation and inflation will be immediate, direct and perfectly linear. You won't find _any_ monetarist scholar who would state that if the Central Bank increases the monetary base by 1,538.52% today, we will have exactly 1,538.52% inflation the very next day. A country's economy is a complex, dynamic, highly variable system, the result of millions of simultaneous decisions among individuals and subject to a great many rigidities. In fact, the literature on the possible positive real effects of money creation in the short run (a fall in unemployment, for example) is immense within the neoclassical school, to which monetarism belongs. Milton Friedman himself, in _Free to Choose_, published fully forty years ago, put it this way: "It takes time - measured in years, not months - for inflation to develop; it takes time for inflation to be cured".
+
+At the same time, monetarism claims that inflation occurs due to the _excessive_ expansion of the quantity of money; but monetarism does _not_ claim that printing money, per se, generates inflation. When output grows and the country is richer, people will demand more money to facilitate the greater number of transactions they want to carry out (and the greater the demand for money, the lower the velocity of money). If I used to buy one kilo of steak and now I want to buy two, I will demand more banknotes to do so. Money creation in line with this growth in output would _not_ be inflationary, because the demand for money has risen too. **For monetarism, the _supply_ of money (its creation) and the _demand_ for it are equally relevant** in determining the equilibrium, and, for that reason, the word _excessive_ appears in the iconic maxim: "_excessive_ money creation generates inflation". A typical modern counterargument to the quantity theory runs along these lines: "the United States printed a great deal of money in the 2008 crisis and had no inflation". Even though the fact is accurate, the argument leaves out that the demand for money also rose enormously as a result of the crisis - or, put the other way around, the velocity of money fell sharply:
+
+{% include figure.liquid loading="eager" path="assets/img/money-supply/velocity.png" class="img-fluid" zoomable=true caption="Figure 1. Velocity of the M2 money stock in the United States. It falls from roughly 2.0 on the eve of the 2008 crisis to about 1.7 by 2010, and keeps sliding thereafter; the collapse at the right-hand edge is the 2020 pandemic. Shaded bands mark NBER recessions. Source: Federal Reserve Bank of St. Louis (FRED)." %}
+
+This is also closely related to two episodes recently observed in Argentina. The first is Guido Sandleris' tenure at the Central Bank (September 2018 - December 2019), during which he ran a "monetary aggregates" regime that sought, essentially, to tightly control the money supply ($M$) in order to control inflation. In the first months of his tenure, however, inflation did not abate. A monetarist would raise two points here. First, that since prices do not respond immediately, one has to wait before judging the results of a contractionary policy. Wholesale inflation for July 2019 came in at 0.1%, which would seem to prove monetarism right (this was just before Alberto Fernández's victory in the August 11 primary and the run on the peso that followed, which was at bottom a fall in the demand for pesos). Second, a monetarist could also object that Leliqs - short-term bills that the Central Bank issued - functioned as a "promise to print money tomorrow", since in the future the Central Bank would need to issue pesos to cover its maturing debt; so leaving them out of the aggregates target, controlling the monetary base but not the stock of Leliqs, could hamper the disinflation program.
+
+Let us turn, then, to the second episode. In recent months, as a result of COVID lockdowns, people have been restrained from carrying out many transactions they would have otherwise performed, and the velocity of money has thus fallen abruptly. Faced with the urgent need to provide social assistance to households and firms, and with no fiscal space to speak of (to raise taxes or issue debt), the government had to resort to an expansionary monetary policy, sharply increasing money creation to finance the relief programs. Will this expansion be inflationary? Monetarism would offer the following considerations. First, that inflation will most likely not arrive instantly, but rather will take time. Second, that we will have to watch what happens to the demand for money once lockdowns are lifted. If demand falls markedly (sending velocity sharply up) and the government does not absorb the excess supply issued over these months, only then will a rise in inflation be predictable. If the Central Bank absorbs the surplus, which it did during July using Pases (repo operations) and Leliqs, then the money creation will have been only temporary, and will have taken place in a period of high demand for pesos, so it should not prove inflationary.
+
+## Conclusions
+
+I will close with a more personal reflection. Much as we like to think ourselves special, Argentina is governed by the same economic laws as the rest of the world. From the 1980s onward, thanks to advances in monetary theory, the great majority of countries managed to solve their inflation problems. Average world inflation was 13% in 1980; in 2019 it was just 2.3%. Over the past ten years, as a result of an enormous public sector that needs more financing than it can raise through taxes, Argentina's monetary base rose by more than 1,400%, while prices, eerily close behind, rose 1,442%. Looking for the causes of inflation in factors like "the wickedness of Argentine business owners", rather than in the actions of the government, seems to miss the central point.
+
+Economics is a social science still very young and full of uncertainty in its predictions, so we should always take economists' opinions with a grain of salt (this article especially). But the advances, both theoretical and practical, in the fight against inflation, which does so much harm to the poorest, are a real and observable fact. Instead of continuing to experiment on a society that has suffered it for a great many decades, we should start copying the solutions adopted by the countries that succeeded in controlling it; not contradict them.

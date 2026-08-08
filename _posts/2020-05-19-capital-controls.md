@@ -1,27 +1,24 @@
 ---
 layout: post
-title: "Capital controls: a greater evil financed by the poorest"
+title: "Capital controls: a greater evil paid for by the poorest"
 date: 2020-05-19 10:00:00-0300
-description: why and how exchange controls end up hurting the people they claim to protect
+description: Why and how currency exchange controls end up hurting the people they claim to protect
 tags:
-  - capital-controls
+  - capital controls
   - argentina
-  - cepo al dolar
-  - economics
+  - cepo al dólar
 categories: economics
 related_posts: true
 ---
 
-Opening paragraph — the claim you want to make, in two or three sentences.
+In the midst of lockdowns, and with the country paralyzed by the coronavirus, we have witnessed over the past few days the free-market peso exchange ("peso _blue_") steal the front pages from the pandemic news. After several weeks of exchange-rate stability, it plummeted from 77 USD/ARS to 140 USD/ARS and opened a gap of almost 100% with the _"solidarity_ peso" (the official rate). The parallel free-market rate had last drawn this much attention when, in the closing months of the Macri administration, capital controls were reimposed to try to contain the peso's plunge. In this article we set out to examine some of the "hidden" economic consequences of keeping these restrictions in place over a prolonged period, and how they end up misaligning the government's incentives to act responsibly.
 
-## The case for controls
+Put plainly, capital controls - known in Argentina as the _cepo_, or the "chokehold" - restrict the buying and selling of foreign currency: I can no longer walk into a bank and buy dollars with pesos, nor can I buy them from, or sell them to, a friend. In Argentina, the price of the dollar has a strong influence on the local price level, and therefore on inflation, which is why governments want to keep the exchange rate "calm". The cepo enables this without the government having to burn through the Central Bank's international reserves by intervening in FX markets. It makes sense as a short-term policy in periods of high instability - such as last year's elections (2019) - but it stops making sense the moment it hardens into a permanent state policy. Beyond the ethical dilemmas it raises, given that it strips away our freedom to carry out a very basic commercial transaction (why can the government prohibit me from buying dollars from someone willing to sell them to me at a price that makes us both happy?), the cepo also creates an enormous range of economic distortions.
 
-What proponents argue, stated fairly.
+Primarily, the cepo penalizes exporters and subsidizes the richer classes of society who can afford imported luxury goods sold at the official exchange rate. At a crucial moment in which the country needs hard currency to service its debt, the government discourages exports by paying exporters an artificially low price for their dollars (as low as 45 USD/ARS for agricultural goods, once export duties are taken out). Consider a farmer who sells soy for USD 1,000 and is then obliged by law to convert the proceeds into pesos at that artificially low rate. If he then wants to get hold of dollars again, the government's restrictions leave him nowhere to go but the parallel market — and of that USD 1,000 sale, only USD 345 are left! Roughly a 65% implied effective tax rate. On the other side, those with the means to buy imported goods can buy them at 65 USD/ARS, half of what they would cost at the free market's current rate. It is thus how the government encourages imports, which, in the end, drain dollars from the Central Bank's reserves anyway, since it is the Central Bank that has to supply them to importers.
 
-## Who actually pays
+However, a major problem created by the cepo, which is not as straightforward to grasp, is that it **corrupts the government's own system of incentives**. Exchange controls let the government issue currency ("print money") without triggering either a rapid rise in inflation (because, remember, the official exchange rate is fixed at an artificially low value) or an immediate loss of reserves. We can better understand this problem with an analogy: imagine a mother who wants her son to make his bed, and threatens to take away his PlayStation to get him to do it. If the mother's threat is "make your bed or the PlayStation goes _today_", the boy has all the motivation he needs to get on with it straight away. If, instead, she says "make your bed or _next week_ I'm taking your PlayStation away", it is far less clear that the boy will immediately comply, hoping that maybe by next week she will forget about it, or that he can skip the bed today and put things right by behaving tomorrow. The problem is that, tomorrow, he probably won't have much incentive to behave either.
 
-Your argument.
+Continuing with the prior analogy, because of the cepo, the Central Bank can today issue a great deal of currency (which we have observed in the past couple of weeks) without any immediate inflationary risk (in fact, because of the cepo and the lockdowns, we have watched inflation fall). The motivation to "behave" is no longer so clear for the government, given that the consequences of its actions dissipate into the future and pose no imminent risk. But prices, in the long run, **always** end up adjusting, and inflation - or, more precisely, the inflation tax - falls on, and punishes hardest, the poorest, who have no access to credit, nor to imported goods, nor any way to hedge against the erosion of their income's purchasing power. In this way, the cepo lets an unsustainable macroeconomic state of affairs persist for longer than it otherwise would, weakening the government's incentive to act responsibly and, in time, harming the most vulnerable.
 
-## Conclusion
-
-Where it leaves you.
+For the upper classes that held on to their income despite the pandemic, these past few days have been an all-out spending spree: luxury cars, appliances and electronics all available at the official exchange rate and in eighteen government-subsidized interest-free installments, which result in ludicrously, preposterously low real prices. But meanwhile, and in a future that seems far off yet always arrives, the lower classes, who have no access whatsoever to these arrangements, face an inflation surge that will destroy their real incomes and push them into an ever more distressing situation. **A true redistribution of wealth, but upside down.**
