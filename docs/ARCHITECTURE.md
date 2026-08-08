@@ -70,7 +70,7 @@ bundle exec jekyll build
 bundle exec jekyll serve            # http://localhost:4000/
 ```
 
-What breaks the site is **setting a baseurl it does not have.** `--baseurl /al-folio` is inherited from the upstream template, which publishes its demo as a *project page* at `https://alshedivat.github.io/al-folio/`. Pass it here and every asset and internal link resolves one path segment too deep — the build succeeds, emits no warning, and renders unstyled. The Docker entry point serves from the root as well, so `curl -fsS http://127.0.0.1:8080/` is the health check; `/al-folio/` returns 404. A build that "works" but renders unstyled is almost always a baseurl mismatch.
+What breaks the site is **setting a baseurl it does not have.** `--baseurl /al-folio` is inherited from the upstream template, which publishes its demo as a _project page_ at `https://alshedivat.github.io/al-folio/`. Pass it here and every asset and internal link resolves one path segment too deep — the build succeeds, emits no warning, and renders unstyled. The Docker entry point serves from the root as well, so `curl -fsS http://127.0.0.1:8080/` is the health check; `/al-folio/` returns 404. A build that "works" but renders unstyled is almost always a baseurl mismatch.
 
 The general rule, if you fork this elsewhere: personal and organization sites (`username.github.io`) leave `baseurl` **empty but present**; project sites set `baseurl: /<project-name>/`. See [FAQ](FAQ.md#my-webpage-works-locally-but-after-deploying-it-is-not-displayed-correctly-css-and-js-are-not-loaded-properly-how-do-i-fix-that).
 
