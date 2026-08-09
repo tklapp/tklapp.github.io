@@ -77,6 +77,10 @@ html[data-theme="dark"] {
   --global-hover-color: #{$accent-dark};
 }
 
+figcaption.caption {
+  color: var(--global-text-color-light);
+}
+
 /* Bigger profile photo on the about page, without shortening its text.
  *
  * The theme floats the photo at 30% of a 930px container, leaving a ~635px text
