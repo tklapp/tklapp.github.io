@@ -6,10 +6,10 @@ title: blank # the website title (if blank, full name will be used instead)
 first_name: Tadeo
 middle_name: M.
 last_name: Klappenbach
-contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+author: Tadeo Klappenbach
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.
+  Personal website of Tadeo Klappenbach, also known as Tad Klappenbach, a Columbia University
+  computer science master's student researching machine learning.
 footer_text: >
   Yet another <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> page.
 keywords: # add your own keywords or leave empty
@@ -22,6 +22,7 @@ baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
 last_updated: false # set to true if you want to display last updated in the footer
 impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
+future: true # include future-dated news announcements
 
 # -----------------------------------------------------------------------------
 # Theme
@@ -95,10 +96,10 @@ al_folio:
 
 navbar_fixed: true
 footer_fixed: false # the footer is overridden away in _includes/footer.liquid; false keeps the body from reserving space for a fixed bar
-search_enabled: true
-socials_in_search: true
-posts_in_search: true
-bib_search: true
+search_enabled: false
+socials_in_search: false
+posts_in_search: false
+bib_search: false
 
 # Dimensions
 max_width: 930px
@@ -108,9 +109,9 @@ max_width: 930px
 # -----------------------------------------------------------------------------
 # Display links to the page with a preview object on social media.
 # see https://schema.org/docs/faq.html for more information
-serve_og_meta: false # Include Open Graph meta tags in the HTML head
-serve_schema_org: false # Include Schema.org in the HTML head
-og_image: # The site-wide (default for all links) Open Graph preview image
+serve_og_meta: true # Include Open Graph meta tags in the HTML head
+serve_schema_org: true # Include Schema.org metadata for search engines
+og_image: /assets/img/prof_pic/IMG_1615.png # Site-wide social preview image
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification

@@ -3,6 +3,9 @@ layout: about
 title: about
 permalink: /
 subtitle:
+description: >
+  Personal website of Tadeo Klappenbach, also known as Tad Klappenbach, a Columbia University
+  computer science master's student researching machine learning.
 
 profile:
   align: right
@@ -23,10 +26,10 @@ announcements:
 latest_posts:
   enabled: true
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  limit: 1 # only show "Productive walks on the edge of collapse"
 ---
 
-Hi 👋🏻! I'm **Tadeo** (aka Tad). I am currently a CS Master's student at **Columbia University**, where I hope to collaborate in pushing the frontier in all things machine learning.
+Hi 👋🏻! I'm **Tadeo Klappenbach** (aka **Tad Klappenbach**). I am currently a CS Master's student at **Columbia University**, where I hope to collaborate in pushing the frontier in all things machine learning.
 
 I am interested in interesting things 😁 - lately, that has revolved around **generalization of over-parameterized models** 🏔️, **pre-training of small language models** 🐣, **continual learning** 🐘, and the emergence of **objectness (shape-bias) in self-supervised vision models** 🫖.
 
