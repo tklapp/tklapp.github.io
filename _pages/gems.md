@@ -2,7 +2,7 @@
 layout: page
 permalink: /gems/
 title: gems
-description: live recordings worth the detour — an ongoing dig through concerts, sessions, and bootlegs.
+description: live recordings worth the detour.
 nav: true
 nav_order: 3
 ---
