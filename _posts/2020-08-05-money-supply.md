@@ -13,6 +13,8 @@ categories: economics
 related_posts: true
 ---
 
+<small>This article was originally written in spanish for my alma mater's student ran magazine, [Revista La Curva](https://revistalacurva.wixsite.com/revistalacurva/post/emisi%C3%B3n-sin-inflaci%C3%B3n-se-puede-la-visi%C3%B3n-monetarista).</small>
+
 ## Introduction
 Thus spoke Borges in _La noche cíclica_: "los astros y los hombres vuelven cíclicamente" - "stars and men return in cycles". In Argentina, so do debates the rest of the world seems to have settled several decades ago. With economic activity almost entirely paralyzed by lockdowns, and with the government printing money at a rapid pace without much inflation (even though that trend reversed somewhat in July), the debate has reemerged on whether inflation is a monetary phenomenon caused by excessive money growth, or whether it stems from alternative causes, like "greedy business owners", "market concentration" or "distributive struggles" between workers and employers.
 
