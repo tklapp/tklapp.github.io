@@ -2,12 +2,13 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: blank # the website title (if blank, full name will be used instead)
+title: Tadeo Klappenbach # public site name used in page titles and social previews
 first_name: Tadeo
 middle_name: M.
 last_name: Klappenbach
 author: Tadeo Klappenbach
-description: > # the ">" symbol means to ignore newlines until "footer_text:"
+# Strip the trailing newline: the theme interpolates this value into JSON-LD.
+description: >-
   Personal website of Tadeo Klappenbach, also known as Tad Klappenbach, a Columbia University
   computer science master's student researching machine learning.
 footer_text: >

@@ -3,7 +3,7 @@ layout: about
 title: about
 permalink: /
 subtitle:
-description: >
+description: >-
   Personal website of Tadeo Klappenbach, also known as Tad Klappenbach, a Columbia University
   computer science master's student researching machine learning.
 
