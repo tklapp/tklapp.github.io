@@ -26,7 +26,7 @@ announcements:
 latest_posts:
   enabled: true
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 1 # only show "Productive walks on the edge of collapse"
+  limit: 1 # show the most recent published post
 ---
 
 Hi 👋🏻! I'm **Tadeo Klappenbach** (aka **Tad**). I am currently a CS Master's student at **Columbia University**, where I hope to collaborate in pushing the frontier in all things machine learning.
