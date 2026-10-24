@@ -2,7 +2,7 @@
 layout: page
 permalink: /gems/
 title: gems
-description: live recordings worth the detour.
+description: It's a beautiful thing, man. Music is a beautiful thing... Music is a beatiful thing, baby. It's a beautiful thing, baby. It's a beautiful thing. Let me tell you som'thin' 'bout music. It's beautiful!
 nav: true
 nav_order: 3
 ---
